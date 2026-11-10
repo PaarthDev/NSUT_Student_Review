@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ outlet.name }} · NSUT Campus Review</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body class="listing-page" data-outlet="{{ outlet.slug }}" data-theme="{{ outlet.cover }}">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <nav class="nav"><a class="brand" href="/"><span class="brand-mark"><img
+          src="{{ url_for('static', filename='nsut-logo.png') }}" alt="NSUT logo"
+          onerror="this.parentNode.classList.add('no-logo');this.remove()"><span
+          class="brand-letter">N</span></span><span>campus<span class="brand-light">/review</span></span></a>
+    <div class="nav-links"><a href="/">Home</a><a href="/#places">All places</a><a class="nav-cta" href="#menu">Explore
+        items <span>↘</span></a></div><button class="menu-toggle" aria-label="Open menu">☰</button>
+  </nav>
+  <main class="listing-main">
+    <a href="/" class="back-link">← Back to campus</a>
+    <section class="listing-hero">
+      <div class="listing-icon">{{ outlet.emoji }}</div>
+      <div class="eyebrow">NSUT CAMPUS DIRECTORY / {{ outlet.kind|upper }}</div>
+      <h1>{{ outlet.name }}<span class="gradient-text">.</span></h1>
+      <p>{{ outlet.description }}</p>
+      <div class="listing-summary"><span><b id="total-count">—</b> items listed</span><i></i><span><b
+            id="review-count">—</b> student reviews</span><i></i><span><b id="avg-rating">—</b> average rating</span>
+      </div>
+    </section>
+    <section class="analytics-panel" id="analytics" aria-label="Rating analytics">
+      <div class="analytics-score">
+        <div class="eyebrow">AVERAGE RATING</div>
+        <div class="score-number" id="avg-big">–</div>
+        <div class="stars score-stars" id="avg-stars">☆☆☆☆☆</div>
+        <div class="score-sub" id="avg-sub">Loading…</div>
+      </div>
+      <div class="analytics-bars" id="rating-bars"></div>
+      <div class="analytics-top">
+        <div class="eyebrow">TOP RATED HERE</div>
+        <ol id="top-items">
+          <li class="muted">No reviews yet</li>
+        </ol>
+      </div>
+    </section>
+    <section class="menu-section" id="menu">
+      <div class="menu-heading">
+        <div>
+          <div class="eyebrow">THE DIRECTORY</div>
+          <h2>Explore & <span class="gradient-text">review.</span></h2>
+        </div>
+        <div class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Search items..."></div>
+      </div>
+      <div class="filter-row" id="filters"><button class="filter-chip active" data-category="">All items</button></div>
+      <div class="items-grid" id="items-grid">
+        <div class="loading-state">Loading the campus menu<span>✳</span></div>
+      </div>
+    </section>
+    <section class="review-callout">
+      <div>
+        <div class="eyebrow">YOUR VOICE MATTERS</div>
+        <h2>Been there?<br><span class="gradient-text">Tell us about it.</span></h2>
+        <p>Pick any item above to leave a rating and help your fellow students.</p>
+      </div>
+      <div class="callout-mark">✳</div>
+    </section>
+  </main>
+  <footer><a class="brand" href="/"><span class="brand-mark"><img
+          src="{{ url_for('static', filename='nsut-logo.png') }}" alt="NSUT logo"
+          onerror="this.parentNode.classList.add('no-logo');this.remove()"><span
+          class="brand-letter">N</span></span><span>campus<span class="brand-light">/review</span></span></a><span>Made
+      for the NSUT student community.</span><span>©
+      2026</span></footer>
+
+  <div class="modal-backdrop" id="review-modal" aria-hidden="true">
+    <div class="review-modal">
+      <button class="modal-close" id="close-modal" aria-label="Close">×</button>
+      <div class="eyebrow">SHARE YOUR EXPERIENCE</div>
+      <h2 id="modal-item">Rate this item<span class="gradient-text">.</span></h2>
+      <p class="modal-subtitle">Your honest review helps the NSUT community.</p>
+      <form id="review-form">
+        <input type="hidden" id="item-id">
+        <label>Your name <input id="student-name" maxlength="40" required placeholder="e.g. A fellow NSUTian"></label>
+        <label>Your rating</label>
+        <div class="star-picker" id="star-picker" role="radiogroup" aria-label="Rating out of five">
+          <button type="button" data-rating="1" aria-label="1 star">★</button><button type="button" data-rating="2"
+            aria-label="2 stars">★</button><button type="button" data-rating="3" aria-label="3 stars">★</button><button
+            type="button" data-rating="4" aria-label="4 stars">★</button><button type="button" data-rating="5"
+            aria-label="5 stars">★</button>
+        </div>
+        <label>Your review <textarea id="review-comment" maxlength="500" rows="4" required
+            placeholder="What did you like? What could be better?"></textarea></label>
+        <div class="form-message" id="form-message"></div>
+        <button class="button button-primary submit-review" type="submit">Post review <span>↗</span></button>
+      </form>
+      <div class="existing-reviews" id="existing-reviews"></div>
+    </div>
+  </div>
+  <script src="{{ url_for('static',filename='main.js') }}"></script>
+</body>
+
+</html>

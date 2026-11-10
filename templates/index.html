@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1713">
+  <title>NSUT Campus Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body class="home-page" data-theme="home">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <nav class="nav">
+    <a class="brand" href="/"><span class="brand-mark"><img src="{{ url_for('static', filename='nsut-logo.png') }}"
+          alt="NSUT logo" onerror="this.parentNode.classList.add('no-logo');this.remove()"><span
+          class="brand-letter">N</span></span><span>campus<span class="brand-light">/review</span></span></a>
+    <div class="nav-links"><a href="#places">Explore</a><a href="#analytics">Analytics</a><a href="#about">About</a><a
+        class="nav-cta" href="#places">Write a review <span>↗</span></a></div>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> MADE BY STUDENTS, FOR STUDENTS <span
+            class="eyebrow-line"></span> NSUT DELHI</div>
+        <h1>Your campus.<br><span class="gradient-text">Your honest</span><br>opinion.</h1>
+        <p class="hero-description">The inside scoop on where to eat, what to try and which campus facilities are worth
+          your time. No guesswork. Just student reviews.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#places">Explore campus <span>↘</span></a><a
+            class="text-link" href="#about">How it works <span>↗</span></a></div>
+        <div class="hero-proof">
+          <div class="proof-avatars"><i> S </i><i> N </i><i> C </i><i> + </i></div><span>Built around the student
+            experience</span>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="hero-card hero-card-main">
+          <div class="mini-label">CAMPUS FAVOURITE</div>
+          <div class="food-emoji">🥤</div>
+          <div class="hero-card-title">Your next<br>favourite spot.</div>
+          <div class="rating-line"><span class="stars">★★★★★</span><span>Student powered</span></div>
+        </div>
+        <div class="floating-tag tag-top"><span>✦</span> Real student opinions</div>
+        <div class="floating-tag tag-bottom"><span class="tag-dot"></span> NSUT · DWARKA</div>
+        <div class="art-spark spark-one">✳</div>
+        <div class="art-spark spark-two">✦</div>
+      </div>
+      <div class="hero-bottom"><span>SCROLL TO EXPLORE</span>
+        <div class="scroll-track"><i></i></div><span>01 / 04</span>
+      </div>
+    </section>
+
+    <section class="stats-strip">
+      <div><strong id="stat-reviews">0</strong><span>Student reviews</span></div>
+      <div><strong id="stat-items">0</strong><span>Things to discover</span></div>
+      <div><strong id="stat-average">–</strong><span>Average rating</span></div>
+      <div><strong>100%</strong><span>Student powered</span></div>
+    </section>
+
+    <section class="places-section section-wrap" id="places">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow">THE CAMPUS DIRECTORY</div>
+          <h2>Pick your <span class="gradient-text">next stop.</span></h2>
+        </div>
+        <p>From quick bites between lectures to your next workout, explore what NSUT has to offer.</p>
+      </div>
+      <div class="place-grid">
+        {% for outlet in outlets %}
+        <a class="place-card reveal {{ outlet.cover }}" href="/outlet/{{ outlet.slug }}">
+          <div class="place-card-top"><span class="place-number">0{{ loop.index }}</span><span
+              class="arrow-circle">↗</span></div>
+          <div class="place-icon">{{ outlet.emoji }}</div>
+          <div class="place-card-bottom"><span class="place-kind">{{ outlet.kind }}</span>
+            <h3>{{ outlet.name }}</h3>
+            <p>{{ outlet.description }}</p><span class="card-explore">Explore reviews <b>→</b></span>
+          </div>
+          <div class="card-glow"></div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="analytics-section section-wrap" id="analytics">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow">LIVE CAMPUS ANALYTICS</div>
+          <h2>The campus, <span class="gradient-text">by the numbers.</span></h2>
+        </div>
+        <p>Average stars and total reviews for every place, updated as students post.</p>
+      </div>
+      <div class="analytics-grid" id="analytics-grid">
+        <div class="loading-state">Crunching the numbers<span>✳</span></div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="about">
+      <div class="manifesto-inner reveal">
+        <div class="eyebrow">A BETTER CAMPUS, ONE REVIEW AT A TIME</div>
+        <h2>Good food deserves<br>good <span class="gradient-text">feedback.</span></h2>
+        <p>Found a great coffee? Tried a new snack? Noticed a gym machine needs maintenance? Share it. Your review helps
+          the next student make a better choice.</p><a class="button button-primary" href="#places">Find your place
+          <span>↗</span></a>
+      </div>
+      <div class="manifesto-orb">✳</div>
+    </section>
+  </main>
+  <footer><a class="brand" href="/"><span class="brand-mark"><img
+          src="{{ url_for('static', filename='nsut-logo.png') }}" alt="NSUT logo"
+          onerror="this.parentNode.classList.add('no-logo');this.remove()"><span
+          class="brand-letter">N</span></span><span>campus<span class="brand-light">/review</span></span></a><span>Made
+      for the NSUT student community.</span><span>©
+      2026</span></footer>
+  <script src="{{ url_for('static',filename='main.js') }}"></script>
+</body>
+
+</html>
