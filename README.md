@@ -1,6 +1,6 @@
 # NSUT Campus Review
 
-A beginner-friendly full-stack CP project using:
+full-stack CP project using:
 - Frontend: HTML, CSS, JavaScript
 - Backend: Python + Flask
 - Database: SQLite
