@@ -5,8 +5,7 @@ from pathlib import Path
 app = Flask(__name__)
 DB_PATH = Path(__file__).with_name("campus_review.db")
 
-# Initial menu data transcribed from the photographs supplied.
-# Some handwritten prices are difficult to read; edit them in this list if needed.
+
 OUTLETS = [
     {"slug": "student-canteen", "name": "Student Canteen", "kind": "Food & drinks",
      "description": "The everyday campus food stop. Rate individual dishes and share your experience.",
