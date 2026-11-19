@@ -82,18 +82,3 @@ The database uses `INSERT OR IGNORE` so existing items are not duplicated. If yo
 
 The gym currently contains clearly marked placeholder entries. After checking the gym, replace the `gym_items` list in `init_db()` with the actual equipment names and categories. If the database already exists, delete it before restarting to load the revised starter list (this also deletes test reviews).
 
-## 9. Project demonstration checklist
-
-- Open the homepage and show the animated design.
-- Open Safal / Student Canteen / Nescafé.
-- Search for a menu item and filter by category.
-- Open an item, select stars and submit a comment.
-- Refresh the page and show that the review is still present.
-- Explain that Flask receives the form data and SQLite stores it.
-
-## 10. Notes before submitting
-
-- Menu entries and prices were transcribed from the photographs supplied. A few handwritten or blurry prices are uncertain; confirm them at the outlets.
-- Safal size prices are included in the item notes; the displayed starting price is the smallest size.
-- Gym entries are placeholders until you inspect the equipment.
-- This is a college demonstration project, not a production moderation system. For a public launch, add login, spam protection, moderation/reporting and deployment configuration.
