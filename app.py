@@ -25,8 +25,8 @@ OUTLETS = [
 # item name, category, price (rupees), size/options note
 MENU = {
 "student-canteen": [
-("Aloo Patty / Big Aloo Patty","Snacks",15,"Price shown as 11/15 in photograph; confirm exact variants"),
-("Paneer Patty / Big Paneer Patty","Snacks",25,"Price shown as 15/25 in photograph; confirm exact variants"),
+("Aloo Patty / Big Aloo Patty","Snacks",15,"Price shown as 11/15 "),
+("Paneer Patty / Big Paneer Patty","Snacks",25,"Price shown as 15/25; confirm exact variants"),
 ("Grill Sandwich","Sandwiches",30,""),
 ("Cheese Grill Sandwich","Sandwiches",45,""),
 ("Vegetable Maggi","Maggi",30,""),
@@ -74,9 +74,9 @@ MENU = {
 ("Garlic Bread","Pizza & sides",40,""),
 ("Margherita Pizza","Pizza & sides",80,""),
 ("Vegetable Pizza","Pizza & sides",90,""),
-("Coke","Beverages",25,"Photograph price is not fully clear"),
-("Thums Up","Beverages",25,"Photograph price is not fully clear"),
-("Sprite","Beverages",25,"Photograph price is not fully clear")
+("Coke","Beverages",25,"Price not confirmed"),
+("Thums Up","Beverages",25,"Price not confirmed"),
+("Sprite","Beverages",25,"Price not confirmed")
 ],
 "safal": [
 ("Ganna Juice","Juices",30,"S / M / L / E.L.: ₹30 / ₹40 / ₹50 / ₹60"),
